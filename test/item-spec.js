@@ -88,7 +88,6 @@ describe ('Item', function () {
     expect(roomItems[0].name).to.equal('rock')
   })
 
-
 });
 
 

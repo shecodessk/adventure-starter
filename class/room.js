@@ -1,12 +1,13 @@
-class Room {
+const {Item} = require("../class/item.js");
+
+class Room extends Item{
 
     constructor(name, description) {
-        this.name = name;
-        this.description = description;
+        super(name, description)
         this.exits = {};
         this.items = [];
     }
-
+      
     printRoom() {
         console.clear();
         console.log("");
@@ -42,13 +43,23 @@ class Room {
     getRoomInDirection(direction) {
         return this.exits[direction];
     }
+    
+     getItemByName(name) {   
+           let result = this.items.find(
+            (el) => name === el.name )
 
-    getItemByName(name) {
-
-        // Fill this in
+            return result;
     }
+ }
+//For Testing Only
+//let item = new Item("rock", "just a simple rock");
+//let room = new Room("Test Room", "A test room");
+//room.items.push(item);
+//console.log(room)
+//console.log(room.getItemByName("rock"))
 
-}
+
+
 
 module.exports = {
   Room,
